@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "C/C++: Build active file",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileBasenameNoExtension}",
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "detail": "compiler: usr/bin/g++"
+        },
+        {
+            "type": "process",
+            "label": "Run built file",
+            "command": "${fileBasenameNoExtension}",
+            "dependsOn": "C/C++: Build active file",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+                "external console": true,
+            },
+            "detail": "executor: ${fileBasenameNoExtension}"
+        }
+    ]
+}
